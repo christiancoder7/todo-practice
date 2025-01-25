@@ -8,7 +8,7 @@ function App() {
   const [taskList, setTaskList] = useState([]);
 
   return (
-    <div classname="body">
+    <div className="body">
       <Title />
       <InputForm taskList={taskList} setTaskList={setTaskList}/>
       <TodoList taskList={taskList} setTaskList={setTaskList}/>
