@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+TODOアプリを作り、Reactを学ぶ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+・コンポーネント管理
+・useStateによる状態管理
+　state管理は可変値、propsは不変値
 
-## Available Scripts
+App.js
+コンポーネント管理
+State管理
 
-In the project directory, you can run:
+Title.jsx
+タイトル表示
 
-### `npm start`
+InputForm.jsx
+handleSubmit関数でフォームを送信した時に新しいタスクを taskList に追加する
+1.e.preventDefaultでページリロードを防ぐ
+2.setTaskListを使って、新しいタスクをtaskListに追加する。
+    ・スプレッド構文を用いて、既存のタスクリストを保持しつつ、新しいタスクオブジェクトをそ　の後に追加。
+    ・新しいタスクにはidをtaskList.lengthで設定。textにはinputTextでユーザーが入力した　テキストを設定
+3.新しいタスクが追加された後に、setInputText("")で空にする。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+handleChange関数ではユーザーが入力した内容をinputText状態に更新する
+1.e.target.valueでユーザーが入力したテキストを値として取得。これをsetInputTextを使ってinputTextに設定
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+TodoList.jsx
+handleDone関数では完了したタスクをcompletedプロパティとして設定し取り消し線を付ける
+1.taskListをmapメソッドを使い、タスクのidと一致するタスクを探す。completedプロパティと一致したらtrue(完了)とfalse(未完成)を反転させる。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+handleDelete関数では指定されたidを持つタスクをリストから削除する
+1.引数のidは削除したいid
+2.setTaskList関数ではtaskListの状態を更新する。このsetTaskList関数を呼びだすことで状態が更新される
+3.filterメソッドでtaskList配列の中からtask.idとidが異なるタスクを新しい配列として作る。
+    ・task.id !== idという条件文ではタスクのidが引数のidと一致しない場合はtrue(完了)を返す。条件に一致したタスクのみが新しい配列に残る。
+    新しい配列はsetTaskListに渡される
