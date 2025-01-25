@@ -1,4 +1,4 @@
-<h1?>TODOアプリを作り、Reactを学ぶ</h1>
+<h1>TODOアプリを作り、Reactを学ぶ</h1>
 
 ・コンポーネント管理
 ・useStateによる状態管理
