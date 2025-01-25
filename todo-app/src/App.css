@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, rgb(231, 157, 238),rgb(135, 233, 126));
+  background-image: url("../public/backgroud.jpg");
 }
 
 header {
@@ -35,7 +35,7 @@ header {
 
 .inputForm button {
   padding: 0.38rem 0.5rem;
-  background: rgb(243, 240, 84);
+  background: rgb(0, 255, 64);
 }
 
 .todoList {
